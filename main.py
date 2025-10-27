@@ -93,7 +93,7 @@ def find_path_bfs(start, end, valid_edges, n):
     return None  
 
 
-def approx_tsp_2(n, dist, connections=None):
+def euler_touring_approx(n, dist, connections=None):
     mst_edges = prim_mst(n, dist, connections)
     
     adj = [[] for _ in range(n)]
@@ -169,7 +169,7 @@ def solve_tsp(data: CityData):
             if i != j:
                 dist[i][j] = math.dist(coords[i], coords[j])
 
-    tour, cost = approx_tsp_2(n, dist, connections)
+    tour, cost = euler_touring_approx(n, dist, connections)
 
     return {
         "path": tour,  
